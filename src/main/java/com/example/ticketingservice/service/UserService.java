@@ -34,6 +34,10 @@ public class UserService {
         return user;
     }
 
+    public User getUserV1(Long id) {
+        return userRepository.findById(id).orElseThrow();
+    }
+
     public RedisUser getUserV2(Long id) {
         var key = "user:%d".formatted(id);
         return redisUserRepository.findById(id).orElseGet(() -> {

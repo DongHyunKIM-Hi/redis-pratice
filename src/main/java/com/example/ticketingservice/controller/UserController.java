@@ -19,6 +19,11 @@ public class UserController {
         return userService.getUser(id);
     }
 
+    @GetMapping("/user/{id}/email/v1")
+    public User getUserEmailV1(@PathVariable Long id) {
+        return userService.getUserV1(id);
+    }
+
 
     @GetMapping("/user/{id}/email/v2")
     public RedisUser getUserEmailV2(@PathVariable Long id) {
