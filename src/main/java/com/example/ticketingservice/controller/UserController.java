@@ -24,4 +24,9 @@ public class UserController {
     public RedisUser getUserEmailV2(@PathVariable Long id) {
         return userService.getUserV2(id);
     }
+
+    @GetMapping("/user/{id}/email/v3")
+    public User getUserEmailV3(@PathVariable Long id) {
+        return userService.getUserV3(id);
+    }
 }

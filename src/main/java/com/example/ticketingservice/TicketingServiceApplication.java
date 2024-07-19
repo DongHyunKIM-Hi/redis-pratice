@@ -26,5 +26,6 @@ public class TicketingServiceApplication implements ApplicationRunner {
         userRepository.save(User.builder().email("email2@email.com").name("name2").build());
         userRepository.save(User.builder().email("email3@email.com").name("name3").build());
         userRepository.save(User.builder().email("email4@email.com").name("name4").build());
+        userRepository.save(User.builder().email("email5@email.com").name("name5").build());
     }
 }

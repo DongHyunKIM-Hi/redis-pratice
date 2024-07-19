@@ -1,10 +1,13 @@
 package com.example.ticketingservice.service;
 
+import static com.example.ticketingservice.config.CacheConfig.CACHE1;
+
 import com.example.ticketingservice.entity.RedisUser;
 import com.example.ticketingservice.entity.User;
 import com.example.ticketingservice.repository.RedisUserRepository;
 import com.example.ticketingservice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +46,11 @@ public class UserService {
                 .updatedAt(user.getUpdatedAt())
                 .build());
         });
+    }
+
+    @Cacheable(cacheNames = CACHE1, key = "'user:' + #id")
+    public User getUserV3(Long id) {
+        return userRepository.findById(id).orElseThrow();
     }
 
 }
