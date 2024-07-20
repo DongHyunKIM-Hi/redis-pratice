@@ -7,8 +7,10 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EnableJpaRepositories
 @RequiredArgsConstructor
 public class TicketingServiceApplication implements ApplicationRunner {
 
@@ -24,5 +26,6 @@ public class TicketingServiceApplication implements ApplicationRunner {
         userRepository.save(User.builder().email("email2@email.com").name("name2").build());
         userRepository.save(User.builder().email("email3@email.com").name("name3").build());
         userRepository.save(User.builder().email("email4@email.com").name("name4").build());
+        userRepository.save(User.builder().email("email5@email.com").name("name5").build());
     }
 }
